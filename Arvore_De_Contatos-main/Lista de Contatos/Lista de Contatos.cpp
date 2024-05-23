@@ -360,19 +360,20 @@ public:
         cout << "9 - Sair" << endl;
     }
 
-    void AdicionarContato() {
+        void AdicionarContato() {
         string nome, email, telefone;
-        bool hasLetter = false;
         int favorito; // Alterado para inteiro
+        bool hasLetter = false;
         do {
             cin.ignore();
+            hasLetter = false;
             cout << "Nome: ";
             getline(cin, nome);
             cout << "Email: ";
             getline(cin, email);
             cout << "Telefone: ";
             getline(cin, telefone);
-            cout << "Favoritar contato? (1 - Sim; 0 - Não): ";
+            cout << "Favoritar contato? (1 - Sim; 0 - Nao): ";
             cin >> favorito;
 
 
@@ -385,11 +386,20 @@ public:
             }
 
             if (hasLetter) {
-                std::cout << "Número de Telefone invalido. Há letras no número inserido" << std::endl;
-                cin.ignore();
+                std::cout << "Numero de Telefone invalido. Ha letras no numero inserido" << std::endl;
             }
 
         } while (hasLetter);
+
+
+        if (favorito == 1) {
+            arvoreAVL.insercao(Contato(nome, telefone, email, true));
+            Favoritos.push_back(Contato(nome, telefone, email, true));
+        }
+        else {
+            arvoreAVL.insercao(Contato(nome, telefone, email, false));
+        }
+    }
 
 
         if (favorito == 1) {
