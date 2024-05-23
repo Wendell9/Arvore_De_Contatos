@@ -401,16 +401,6 @@ public:
         }
     }
 
-
-        if (favorito == 1) {
-            arvoreAVL.insercao(Contato(nome, telefone, email, true));
-            Favoritos.push_back(Contato(nome, telefone, email, true));
-        }
-        else {
-            arvoreAVL.insercao(Contato(nome, telefone, email, false));
-        }
-    }
-
     void RemoverContato() {
         string nome;
         cout << "Qual o nome do contato que você deseja remover? ";
